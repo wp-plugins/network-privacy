@@ -3,7 +3,7 @@ Contributors: wpmuguru, cgrymala
 Tags: privacy, plugin, wordpress, network 
 Requires at least: 3.3
 Tested up to: 3.3.1
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 
 Adds more privacy options to both single Wordpress sites and WordPress networks.
 

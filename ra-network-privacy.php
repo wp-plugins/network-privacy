@@ -27,43 +27,44 @@ TODO -
 class RA_Network_Privacy {
 
 	var $settings = false;
+
 	var $meta = array(
 		1 => array(
 			'settings_label' => __( 'Open to search engines' ),
-			'sites_label' => __( 'Public (%d)' ), 
+			'sites_label' => __( 'Public (%d)' ),
 		),
 		0 => array(
 			'settings_label' => __( 'Block search engines' ),
 			'network_label' => __( 'Managed per site' ),
-			'sites_label' => __( 'No Search (%d)' ), 
+			'sites_label' => __( 'No Search (%d)' ),
 		),
 		-1 => apply_filters( 'ra-network-privacy-caps', array(
 			'login_message' => __( ' can be viewed by registered users of this network only.' ),
 			'settings_label' => __( 'Registered network users' ),
 			'network_label' => __( 'Must be registered users' ),
 			'sites_label' => __( 'Users only (%d)' )
-		), -1 ), 
+		), -1 ),
 		-2 => apply_filters( 'ra-network-privacy-caps', array(
 			'login_message' => __( ' can be viewed by registered users of this site only.' ),
 			'settings_label' => __( 'Site subscribers' ),
 			'sites_label' => __( 'Subscribers only (%d)' ),
 			'network_label' => __( 'Must be site subscribers' ),
 			'cap' => 'read'
-		), -2 ), 
+		), -2 ),
 		-3 => apply_filters( 'ra-network-privacy-caps', array(
 			'login_message' => __( ' can be viewed by site administrators only.' ),
 			'settings_label' => __( 'Site administrators' ),
 			'sites_label' => __( 'Administrators only (%d)' ),
 			'network_label' => __( 'Must be site administrators' ),
 			'cap' => 'promote_users'
-		), -3 ), 
+		), -3 ),
 		-4 => apply_filters( 'ra-network-privacy-caps', array(
 			'login_message' => __( ' can be viewed only by contributors and above. Subscribers and logged-out users are not able to view this site.' ),
 			'settings_label' => __( 'Site contributors' ),
 			'sites_label' => __( 'Contributors only (%d)' ),
 			'network_label' => __( 'Must be contributors or above' ),
 			'cap' => 'edit_posts'
-		), -4 ), 
+		), -4 ),
 	);
 
 	function __construct() {
@@ -108,7 +109,7 @@ class RA_Network_Privacy {
 			echo "Disallow: /trackback\n";
 			echo "Disallow: /comments\n";
 		}
-	}	
+	}
 	function noindex() {
 
 		remove_action( 'login_head', 'noindex' );
@@ -124,7 +125,7 @@ class RA_Network_Privacy {
 		remove_filter( 'option_ping_sites', 'privacy_ping_filter' );
 		if ( '1' == get_option( 'blog_public' ) )
 			return $sites;
-		
+
 		return '';
 
 	}
@@ -169,7 +170,7 @@ class RA_Network_Privacy {
 				<title><?php _e("Private Blog Message"); ?></title>
 				<meta http-equiv="refresh" content="5;URL=<?php echo get_settings('siteurl'); ?>/wp-login.php" />
 				<?php wp_admin_css( 'css/login' );
-				wp_admin_css( 'css/colors-fresh' );	?>				
+				wp_admin_css( 'css/colors-fresh' );	?>
 				<link rel="stylesheet" href="css/install.css" type="text/css" />
 				<?php do_action('login_head'); ?>
 			</head>
@@ -189,11 +190,11 @@ class RA_Network_Privacy {
 
 			if( $privacy > -2 || current_user_can( $this->meta[$privacy]['cap'] ) )
 				return;
-	
+
 			$this->login_header();
 ?>
 					<form name="loginform" id="loginform">
-						<p><?php printf( __( 'Wait 5 seconds or 
+						<p><?php printf( __( 'Wait 5 seconds or
 							<a href="%s/wp-login.php">click</a> to continue.' ), get_settings('siteurl') ) ?></p>
 							<?php $this->privacy_login_message (); ?>
 					</form>
@@ -215,7 +216,7 @@ class RA_Network_Privacy {
 	function network_privacy_options_page() { ?>
 		<h3><?php _e( 'Network Privacy Selector' ); ?></h3>
 		<table class="form-table">
-		<tr valign="top"> 
+		<tr valign="top">
 			<th scope="row"><?php _e('Network Privacy'); ?></th>
 			<td><select name="ra_network_privacy" id="ra_network_privacy">
 <?php		for( $i = 0; $i > -4; $i-- ) { ?>
@@ -223,7 +224,7 @@ class RA_Network_Privacy {
 <?php		} ?>
 			</select></td>
 		</tr>
-		</table> 
+		</table>
 <?php	}
 	function network_privacy_update() {
 
