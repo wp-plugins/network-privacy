@@ -2,7 +2,7 @@
 Contributors: wpmuguru, cgrymala, scribu
 Tags: privacy, plugin, wordpress, network 
 Requires at least: 3.3
-Tested up to: 3.5
+Tested up to: 4.0
 Stable tag: 0.1.4
 
 Adds more privacy options to both single Wordpress sites and WordPress networks.
@@ -27,7 +27,7 @@ In a WordPress network activated on an individual site adds the following privac
 
 When Network Activated or in the mu-plugins folder in a WordPress network adds the following:
 
-*	A privacy selector in the Super Admin -> Options page to allow individual site privacy or the 3 above across to network.
+*	A privacy selector in the Network Admin -> Settings page to allow individual site privacy or the 3 above across to network.
 
 Support can be obtained through:
 
