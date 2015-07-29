@@ -37,33 +37,29 @@ Support can be obtained through:
 
 [Ron & Andrea](http://ronandandrea.com/contact/)
 
-== To Do ==
-
-* Update the robots.txt process to use the constants/functions for wp-content, wp-includes and wp-admin directories (in case those items are in a non-standard location, or the install is in a subdirectory)
-
-== FAQ ==
-
-=== Why did I receive an email from Google saying the my CSS and JS files are blocked? ===
-
-By default, this plugin generates a robots.txt file that blocks bot access to the following directories:
-
-* ''
-* '/wp-admin'
-* '/wp-includes'
-* '/wp-login.php'
-* '/wp-content/plugins'
-* '/wp-content/cache'
-* '/wp-content/themes'
-* '/trackback'
-* '/comments'
-
-If you are having issues with this, you can filter the list of directories that are blocked in the robots.txt file by using the `ra_network_privacy_robots_disallow` filter. If you want to allow access to specific directories or files, you can also use the `ra_network_privacy_robots_allow` filter to populate the array of allowed items.
-
 == Installation ==
 
 1. To install in the mu-plugins folder Upload `ra-network-privacy.php` to the `/wp-content/mu-plugins/` directory. It will be listed in your "Must Use" plugins list and always active.
 1. To install in the plugins folder Upload the `network-privacy` folder to the `/wp-content/plugins/` directory. It will be listed in your regular plugins list.
 1. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Frequently Asked Questions ==
+
+= Why did I receive an email from Google saying the my CSS and JS files are blocked? =
+
+By default, this plugin generates a robots.txt file that blocks bot access to the following directories:
+
+* `''`
+* `'/wp-admin'`
+* `'/wp-includes'`
+* `'/wp-login.php'`
+* `'/wp-content/plugins'`
+* `'/wp-content/cache'`
+* `'/wp-content/themes'`
+* `'/trackback'`
+* `'/comments'`
+
+If you are having issues with this, you can filter the list of directories that are blocked in the robots.txt file by using the `ra_network_privacy_robots_disallow` filter. If you want to allow access to specific directories or files, you can also use the `ra_network_privacy_robots_allow` filter to populate the array of allowed items.
 
 == Changelog ==
 
@@ -88,3 +84,7 @@ If you are having issues with this, you can filter the list of directories that 
 
 = 0.1 =
 * Original version.
+
+== To Do ==
+
+* Update the robots.txt process to use the constants/functions for wp-content, wp-includes and wp-admin directories (in case those items are in a non-standard location, or the install is in a subdirectory)
